@@ -30,6 +30,9 @@ endif()
 
 add_library(papyruskv ${PAPYRUSKV_SOURCES})
 
+# To allow linking static library into shared one for YCSB bench.
+set_property(TARGET papyruskv PROPERTY POSITION_INDEPENDENT_CODE ON)
+
 install(TARGETS papyruskv DESTINATION lib)
 
 if(PAPYRUS_USE_FORTRAN)
